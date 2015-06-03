@@ -1,19 +1,17 @@
 $(document).ready(function(){
 
 
-	var $mybutton = $("#play-button");
-	var loading = 
+	// var $mybutton = $("#play-button");
+	// var loading = 
 
-	$mybutton.on ('click', addLoading);
+	// $mybutton.on ('click', addLoading);
 
-	function addLoading(e){
-		$mybutton.html("Loading...");
+	// function addLoading(e){
+	// 	$mybutton.html("Loading...");
 
-	}
+	// }
 
-	setTimeout(function() {
-		$mybutton.html("Loading...");
-	},4000)
+	// 
 
 
 
@@ -27,7 +25,16 @@ $(document).ready(function(){
 		foo: function(){
 			console.log("foo");
 			$(".page").hide();
+			$("nav").hide();
+			$("#play-button").hide();
+
 			$("#a").show();
+
+			setTimeout(function() {
+				$("#play-button").show();
+				$(".loading").hide();
+			},4000)
+
 		},
 
 		bar: function(){
