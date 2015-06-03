@@ -1,9 +1,27 @@
 $(document).ready(function(){
+
+
+	var $mybutton = $("#play-button");
+	var loading = 
+
+	$mybutton.on ('click', addLoading);
+
+	function addLoading(e){
+		$mybutton.html("Loading...");
+
+	}
+
+	setTimeout(function() {
+		$mybutton.html("Loading...");
+	},4000)
+
+
+
 	var routerConfig = {
 		routes: {
-			"gameScreen": "foo",
+			"gamescreen": "foo",
 			"leaderboard": "bar",
-			"setting": "baz",
+			"settings": "baz",
 		},
 
 		foo: function(){
@@ -14,7 +32,7 @@ $(document).ready(function(){
 
 		bar: function(){
 			console.log("bar");
-			$(".page"),hide();
+			$(".page").hide();
 			$("#b").show();
 		},	
 
@@ -24,19 +42,20 @@ $(document).ready(function(){
 			$("#c").show();
 		},
 
-		var app = Backbone.Router.extend(routerConfig);
+	}
 
-		var myRouter = new app();
-		Backbone.history.start();
+	var app = Backbone.Router.extend(routerConfig);
+
+	var myRouter = new app();
+	Backbone.history.start();
 
 	$("#play-button").click(function(e) {
-		var option = {trigger; true};
+		var option = {trigger: true};
 		var settings = $("#settings").val();
-		myrouter.navigate("settings/"+settings, option);
+		myRouter.navigate("settings/"+settings, option);
 	});
+
+
 
 });
 
-
-	}
-}
