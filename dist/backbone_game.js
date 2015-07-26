@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
 	// var $mybutton = $("#play-button");
 	// var loading = 
 
@@ -11,24 +10,31 @@ $(document).ready(function(){
 
 	// }
 
-	// 
-
-
-
+	
 	var routerConfig = {
 		routes: {
+			"":"home",
+			"home": "home",
 			"gamescreen": "foo",
 			"leaderboard": "bar",
 			"settings": "baz",
 		},
 
+		home: function(){
+			$("nav a").show();
+			$(".page").hide();
+			$(".loading").show();
+		},
+
 		foo: function(){
 			console.log("foo");
 			$(".page").hide();
-			$("nav").hide();
+			$("#screen").show();
+
+			$("nav a").hide();
 			$("#play-button").hide();
 
-			$("#a").show();
+			// $("#gamescreen").show();
 
 			setTimeout(function() {
 				$("#play-button").show();
@@ -39,30 +45,30 @@ $(document).ready(function(){
 
 		bar: function(){
 			console.log("bar");
+			$("nav a").hide();
 			$(".page").hide();
-			$("#b").show();
+			$("#board").show();
 		},	
 
 		baz: function(){
 			console.log("baz");
+			$("nav a").hide();
 			$(".page").hide();
-			$("#c").show();
+			$("#sets").show();
 		},
 
 	}
 
-	var app = Backbone.Router.extend(routerConfig);
+		var app = Backbone.Router.extend(routerConfig);
 
-	var myRouter = new app();
-	Backbone.history.start();
+		var myRouter = new app();
+		Backbone.history.start();
 
-	$("#play-button").click(function(e) {
-		var option = {trigger: true};
-		var settings = $("#settings").val();
-		myRouter.navigate("settings/"+settings, option);
-	});
-
+		// $("#play-button").click(function(e) {
+		// 	var option = {trigger: true};
+		// 	var settings = $("#settings").val();
+		// 	myRouter.navigate("settings/"+settings, option);
+		// });
 
 
 });
-
